@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('test_order','App\Http\Controllers\testApiController@getListBank')->name('test_api');
 Route::post('send_order','App\Http\Controllers\testApiController@sendOrder')->name('send_order');
 Route::get('test_success','App\Http\Controllers\testApiController@success')->name('test_success');
+Route::get('test_detail','App\Http\Controllers\testApiController@detail')->name('test_detail');

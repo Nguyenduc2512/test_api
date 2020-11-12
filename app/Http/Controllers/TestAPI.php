@@ -7,8 +7,8 @@ use Firebase\JWT\JWT;
 
 class TestAPI
 {
-    const API_KEY = "Ee3BE4VH9azp7iiLDsAoyT4s3LUqUcbL";
-    const API_SECRET = "UwnthJEpyvPDYakbjtz99rKUJkanD67v";
+    const API_KEY = "a18ff78e7a9e44f38de372e093d87ca1";
+    const API_SECRET = "9623ac03057e433f95d86cf4f3bef5cc";
     const TOKEN_EXPIRE = 60; //token expire time in seconds
     const ENCODE_ALG = 'HS256';
 
@@ -30,10 +30,6 @@ class TestAPI
             'iss'  => self::API_KEY,     // Issuer
             'nbf'  => $notBefore,        // Not before
             'exp'  => $expire,           // Expire
-            'form_params' => [                  // request body (dữ liệu post)
-                //'a' => 'value a',
-                //'b' => 'value b',
-            ]
         ];
 
         /*

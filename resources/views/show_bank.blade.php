@@ -9,13 +9,14 @@
             @foreach($data as $bank)
                 @if($bank->type == 1)
                     <div class="col-2">
-                        <form action="{{route('send_order')}}" method="post" enctype="multipart/form-data" class="form_data">
+                        <form action="{{route('send_order')}}" method="POST" enctype="multipart/form-data" class="form_data">
                             @csrf
                             <img src="{{$bank->bank_logo}}" alt="" style="width: 100px">
                             <input type="hidden" value="{{$bank->id}}" name="bpm_id">
                             <input type="hidden" name="total_amount" value="1000000">
                             <input type="hidden" name="description" value="test">
                             <input type="hidden" name="url_success" value="{{route('test_success')}}">
+                            <input type="hidden" name="url_detail" value="{{route('test_detail')}}">
                             <input type="hidden" name="merchant_id" value="34773">
                             <input type="hidden" name="accept_bank" value="1">
                             <input type="hidden" name="accept_cc" value="0">

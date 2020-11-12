@@ -17,10 +17,9 @@ class testApiController extends Controller
         $options['query']['jwt'] = TestAPI::getToken();
 
 
-        $response = $client->request("GET", "https://api.baokim.vn/payment/api/v4/bpm/list", $options);
+        $response = $client->request("GET", "https://sandbox-api.baokim.vn/payment/api/v4/bpm/list", $options);
         $banks = json_decode($response->getBody()->getContents());
         $data = $banks->data;
-//        dd($data);
         return view('show_bank', compact('data'));
     }
 
@@ -28,7 +27,7 @@ class testApiController extends Controller
         $client = new \GuzzleHttp\Client(['timeout' => 20.0]);
         $options['query']['jwt'] = TestAPI::getToken();
 
-        $payload['mrc_order_id'] = random_bytes(8);
+        $payload['mrc_order_id'] = rand(1,99999999);
         $payload['total_amount'] = $request->total_amount;
         $payload['description'] = $request->description;
         $payload['url_success'] = $request->url_success;
@@ -47,12 +46,16 @@ class testApiController extends Controller
         $payload['customer_address'] = $request->customer_address;
         $options['form_params'] = $payload;
 
-        $response = $client->request("POST", "https://api.baokim.vn/payment/api/v4/order/send", $options);
+        $response = $client->request("POST", "https://sandbox-api.baokim.vn/payment/api/v4/order/send", $options);
         $data = json_decode($response->getBody()->getContents());
+        dd($data);
         return redirect($data->data->payment_url);
 
     }
     public function success() {
         return view('success');
+    }
+    public function detail() {
+        return view('detail');
     }
 }

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9997c0d6-11b1-4573-83e6-7fee3cdaa66d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TestAPI.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TestAPI.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/testApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/testApiController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

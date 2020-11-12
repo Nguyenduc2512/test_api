@@ -17,7 +17,7 @@ class testApiController extends Controller
         $options['query']['jwt'] = TestAPI::getToken();
 
 
-        $response = $client->request("GET", "https://sandbox-api.baokim.vn/payment/api/v4/bpm/list", $options);
+        $response = $client->request("GET", "https://api.baokim.vn/payment/api/v4/bpm/list", $options);
         $banks = json_decode($response->getBody()->getContents());
         $data = $banks->data;
 //        dd($data);
@@ -47,7 +47,7 @@ class testApiController extends Controller
         $payload['customer_address'] = $request->customer_address;
         $options['form_params'] = $payload;
 
-        $response = $client->request("POST", "https://sandbox-api.baokim.vn/payment/api/v4/order/send", $options);
+        $response = $client->request("POST", "https://api.baokim.vn/payment/api/v4/order/send", $options);
         $data = json_decode($response->getBody()->getContents());
         return redirect($data->data->payment_url);
 

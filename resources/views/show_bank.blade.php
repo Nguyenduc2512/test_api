@@ -17,7 +17,7 @@
                             <input type="hidden" name="description" value="test">
                             <input type="hidden" name="url_success" value="{{route('test_success')}}">
                             <input type="hidden" name="url_detail" value="{{route('test_detail')}}">
-                            <input type="hidden" name="merchant_id" value="34773">
+                            <input type="hidden" name="merchant_id" value="35333">
                             <input type="hidden" name="accept_bank" value="1">
                             <input type="hidden" name="accept_cc" value="0">
                             <input type="hidden" name="accept_qrpay" value="0">

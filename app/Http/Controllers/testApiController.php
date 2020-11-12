@@ -48,7 +48,6 @@ class testApiController extends Controller
 
         $response = $client->request("POST", "https://sandbox-api.baokim.vn/payment/api/v4/order/send", $options);
         $data = json_decode($response->getBody()->getContents());
-        dd($data);
         return redirect($data->data->payment_url);
 
     }

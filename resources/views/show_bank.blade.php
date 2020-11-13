@@ -13,7 +13,7 @@
                             @csrf
                             <img src="{{$bank->bank_logo}}" alt="" style="width: 100px">
                             <input type="hidden" value="{{$bank->id}}" name="bpm_id">
-                            <input type="hidden" name="total_amount" value="10000">
+                            <input type="hidden" name="total_amount" value="1000">
                             <input type="hidden" name="description" value="test">
                             <input type="hidden" name="url_success" value="{{route('test_success')}}">
                             <input type="hidden" name="url_detail" value="{{route('test_detail')}}">

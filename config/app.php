@@ -133,6 +133,8 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
+    'log'=> 'daily',
+    'log_level' => env('APP_LOG_LEVEL', 'error'),
 
     'providers' => [
 

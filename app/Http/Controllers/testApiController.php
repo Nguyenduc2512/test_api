@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\OrdersModel;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
 
 class testApiController extends Controller
 {
@@ -73,12 +74,7 @@ class testApiController extends Controller
 
         //So sánh chữ ký bạn tạo ra với chữ ký bảo kim gửi sang, nếu khớp thì verify thành công
         if($baokimSign == $mySign){
-            $options['id'] = $webhookData['order']->id;
-            $options['mrc_order_id'] = $webhookData['order']->mrc_order_id;
-            $client = new \GuzzleHttp\Client(['timeout' => 20.0]);
-            $response = $client->request("POST", "https://api.baokim.vn/payment/api/v4/order/send", $options);
-
-            return $response->json('webhook notification');
+            Log::error('signature success');
         }else {
             echo "Signature is invalid";
         }

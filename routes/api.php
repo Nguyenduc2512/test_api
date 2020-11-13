@@ -21,3 +21,4 @@ Route::get('test_order','App\Http\Controllers\testApiController@getListBank')->n
 Route::post('send_order','App\Http\Controllers\testApiController@sendOrder')->name('send_order');
 Route::get('test_success','App\Http\Controllers\testApiController@success')->name('test_success');
 Route::get('test_detail','App\Http\Controllers\testApiController@detail')->name('test_detail');
+Route::post('webhook_return', 'App\Http\Controllers\testApiController@webhookNotification')->name('webhook_notification');

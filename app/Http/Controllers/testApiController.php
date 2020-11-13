@@ -57,4 +57,25 @@ class testApiController extends Controller
     public function detail() {
         return view('detail');
     }
+
+    public function webhookNotification(){
+        $jsonWebhookData = '{"order":{order data},"txn":{txn data},"sign":"baokim sign"}';
+        $webhookData = json_decode($jsonWebhookData, true);
+
+        //Get và remove trường sign ra khỏi dữ liệu
+        $baokimSign = $webhookData['sign'];
+        unset($webhookData['sign']);
+
+        //Chuyển dữ liệu đã remove sign về lại dạng json và sử dụng thuật toán hash sha256 để tạo signature với secret key
+        $signData = json_encode($webhookData);
+        $secret = TestAPI::API_SECRET;
+        $mySign = hash_hmac('sha256', $signData, $secret);
+
+        //So sánh chữ ký bạn tạo ra với chữ ký bảo kim gửi sang, nếu khớp thì verify thành công
+        if($baokimSign == $mySign){
+            return response()->json();
+        }else {
+            echo "Signature is invalid";
+        }
+    }
 }

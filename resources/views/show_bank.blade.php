@@ -22,7 +22,7 @@
                             <input type="hidden" name="accept_cc" value="0">
                             <input type="hidden" name="accept_qrpay" value="0">
                             <input type="hidden" name="accept_e_wallet" value="0">
-                            <input type="hidden" name="webhooks" value="">
+                            <input type="hidden" name="webhooks" value="{{route('webhook_notification')}}">
                             <input type="hidden" name="customer_email" value="nguyenduc2512@gmail.com">
                             <input type="hidden" name="customer_phone" value="0111111111">
                             <input type="hidden" name="customer_name" value="nguyenduc">

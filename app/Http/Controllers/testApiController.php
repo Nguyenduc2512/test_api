@@ -59,7 +59,7 @@ class testApiController extends Controller
         return view('detail');
     }
 
-    public function webhookNotification(){
+    public function webhookNotification(Request $request){
         $jsonWebhookData = '{"order":{order data},"txn":{txn data},"sign":"baokim sign"}';
         $webhookData = json_decode($jsonWebhookData, true);
 
@@ -76,7 +76,7 @@ class testApiController extends Controller
         if($baokimSign == $mySign){
             Log::error('signature success');
         }else {
-            echo "Signature is invalid";
+            Log::error('signature not success');
         }
     }
 }
